@@ -4,7 +4,7 @@
 typedef int Item;
 #include "list.cpp"
 
-List InitNaturalNumberList(int size)//Init List
+List InitNaturalNumberList(int size)//Initialize List as Natural Number List
 {
     List L = InitList();   
     int i;
@@ -17,7 +17,7 @@ List InitNaturalNumberList(int size)//Init List
 }
 
 
-int Find(List L, Item e)
+int Find(List L, Item e)//Find element with input
 {
     Node p = L->head;
     int i;
@@ -32,7 +32,7 @@ int Find(List L, Item e)
     return 0;
 }
 
-void show(List L)
+void show(List L)//Print all element in list.
 {
     Node p = L->head;
     int i;
@@ -59,7 +59,7 @@ int main()
             L = InitNaturalNumberList(size);
         }
 
-        printf("1.Is list empty?\n2.Length of list?\n3.Print all element.\n4.Get specific element\n5.Does element e exist?\n6.Insert e before i th element.\n7.Delete i th element.\n8.Destroys list.\n9.Quit.\nPlease input your choice by the order.\n");
+        printf("1.Is list empty?\n2.Length of list?\n3.Print all element.\n4.Get specific element\n5.Does element e exist?\n6.Insert e before at i th position.\n7.Delete i th element.\n8.Destroys list.\n9.Quit.\nPlease input your choice by the order.\n");
         scanf("%d", &choice);
         switch (choice)
         {
@@ -113,7 +113,7 @@ int main()
             scanf("%d", &order);
             printf("Please input the item:\n");
             scanf("%d", &item);
-            InsertBefore(L, order, item);
+            InsertAt(L, order, item);
             printf("Inserts successfully.\n\n");
             break;
         }
