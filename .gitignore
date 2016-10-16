@@ -1,0 +1,8 @@
+#floders:
+.metadata/
+.recommenders/
+algs4-data/
+bin/
+doc/
+.settings/
+algs4.jar
