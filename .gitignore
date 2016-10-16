@@ -5,4 +5,8 @@ algs4-data/
 bin/
 doc/
 .settings/
+
+#single
 algs4.jar
+.classpath
+.project
