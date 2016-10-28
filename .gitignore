@@ -6,8 +6,8 @@ bin/
 doc/
 .settings/
 
-#single
+#files
 algs4.jar
 .classpath
 .project
-.exe
+.cpp.exe
