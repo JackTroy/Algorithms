@@ -19,10 +19,10 @@ int main()
         printf("0.Exit\n");
         printf("**********************************\n");
         scanf("%d", &choice);
-        if (choice == 0)
-            break;
+        if (choice == 0)    break;        
         switch (choice)
         {
+        //Symmetrical matrix
         case 1:
         {
             printf("Please input the size of matrix between 1 and 10.\n");
@@ -41,13 +41,12 @@ int main()
             {
                 printf("**********************************************************\n");
                 printf("1.Get item with index\n");
-                printf("2.Show inner the value and index of matrix's inner array.\n");
+                printf("2.Show the matrix\n");
                 printf("0.Exit\n");
                 printf("Please input your choice.\n");
                 printf("**********************************************************\n");
                 scanf("%d", &choice);
-                if (choice == 0)
-                    break;
+                if (choice == 0)    break;                   
                 if (choice == 1)
                 {
                     int row, col;
@@ -57,20 +56,19 @@ int main()
                     scanf("%d", &col);
                     printf("The item is %d\n", getSMatrixItem(a, row, col));
                 }
-                else
-                {
-                    showSMatrix(a);
-                }
+                else    showSMatrix(a);                  
             }
             break;
         }
-        case 2:{
-            int size,c;
+        //Lower triangular matrix
+        case 2:
+        {
+            int size, c;
             printf("Please input the size of matrix between 1 and 10.\n");
             scanf("%d", &size);
             printf("Pleae input the constant integer as items of upper triangle.\n");
             scanf("%d", &c);
-            TMatrix a = InitTMatrix(size,c);
+            TMatrix a = InitTMatrix(size, c);
             int count = (1 + size) * size / 2;
             Item item;
             while (a->count < count)
@@ -83,13 +81,12 @@ int main()
             {
                 printf("**********************************************************\n");
                 printf("1.Get item with index\n");
-                printf("2.Show inner the value and index of matrix's inner array.\n");
+                printf("2.Show the matrix\n");
                 printf("0.Exit\n");
                 printf("Please input your choice.\n");
                 printf("**********************************************************\n");
                 scanf("%d", &choice);
-                if (choice == 0)
-                    break;
+                if (choice == 0)    break;                  
                 if (choice == 1)
                 {
                     int row, col;
@@ -99,21 +96,20 @@ int main()
                     scanf("%d", &col);
                     printf("The item is %d\n", getTMatrixItem(a, row, col));
                 }
-                else
-                {
-                    showTMatrix(a);
-                }
+                else    showTMatrix(a);                   
             }
             break;
         }
-        case 3:{
-            int size,width;
+        //Diagonal matrix
+        case 3:
+        {
+            int size, width;
             printf("Please input the size of matrix between 1 and 10.\n");
             scanf("%d", &size);
             printf("Pleae input the odd number of diagonal lines.\n");
             scanf("%d", &width);
-            DMatrix a = InitDMatrix(size,width);
-            int count = size*width-((width-1)/2)*((width-1)/2+1);
+            DMatrix a = InitDMatrix(size, width);
+            int count = size * width - ((width - 1) / 2) * ((width - 1) / 2 + 1);
             Item item;
             while (a->count < count)
             {
@@ -125,13 +121,12 @@ int main()
             {
                 printf("**********************************************************\n");
                 printf("1.Get item with index\n");
-                printf("2.Show inner the value and index of matrix's inner array.\n");
+                printf("2.Show the matrix\n");
                 printf("0.Exit\n");
                 printf("Please input your choice.\n");
                 printf("**********************************************************\n");
                 scanf("%d", &choice);
-                if (choice == 0)
-                    break;
+                if (choice == 0)    break;                    
                 if (choice == 1)
                 {
                     int row, col;
@@ -141,10 +136,7 @@ int main()
                     scanf("%d", &col);
                     printf("The item is %d\n", getDMatrixItem(a, row, col));
                 }
-                else
-                {
-                    showDMatrix(a);
-                }
+                else    showDMatrix(a);
             }
             break;
         }
