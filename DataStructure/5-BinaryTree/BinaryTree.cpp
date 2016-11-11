@@ -1,3 +1,8 @@
+/*
+this piece of code work well when debuging,
+but must crash down when running its built application
+could be the issue of ram leaking,but i'm tired of it 
+*/
 #include <stdio.h>
 #include <stdlib.h>
 //将字符作为二叉树的节点元素类型
@@ -51,7 +56,6 @@ BTNode popStack(Stack s)
     BTNode x = s->top->BTNode;
     Node node = s->top;
     s->top = node->next;
-    free(node);
     return x;
 }
 //创建队列
@@ -86,7 +90,6 @@ BTNode dequeue(Queue s)
     if (s->first == s->last)
     {
         x = s->first->BTNode;
-        free(s->first);
         s->first = NULL;
         s->last = NULL;
     }
@@ -95,7 +98,6 @@ BTNode dequeue(Queue s)
         x = s->first->BTNode;
         node = s->first;
         s->first = s->first->next;
-        free(node);
     }
     return x;
 }
@@ -131,7 +133,7 @@ void PreOrderTraverse_stack(BTNode bt)
     Stack s;
     s = InitStack();
     addStack(s, bt);
-    while (s->top->BTNode != NULL)
+    while (s->top != NULL)
     {
         BTNode temp = popStack(s);
         printf("%c", temp->item);
