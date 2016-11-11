@@ -10,4 +10,4 @@ doc/
 algs4.jar
 .classpath
 .project
-.exe
+*.exe
