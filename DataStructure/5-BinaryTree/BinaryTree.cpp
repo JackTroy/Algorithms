@@ -1,32 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
+//将字符作为二叉树的节点元素类型
 typedef char Item;
-
+//二叉树节点数据结构
 typedef struct BinaryTreeNode
 {
     Item item;
     struct BinaryTreeNode *left, *right;
 } BinaryTreeNode, *BTNode;
-
+//链表节点
 typedef struct ListNode
 {
     BinaryTreeNode *BTNode;
     struct ListNode *next;
 } ListNode, *Node;
+//栈
 typedef struct ListStack
 {
     ListNode *top;
 } ListStack, *Stack;
+//队列
 typedef struct LinkQueue
 {
     ListNode *first, *last;
 } LinkQueue, *Queue;
+//初始化栈
 Stack InitStack()
 {
     Stack s = (Stack)malloc(sizeof(Stack));
     s->top = NULL;
     return s;
 }
+//入栈
 void addStack(Stack s, BTNode x)
 {
     Node node = (Node)malloc(sizeof(Node));
@@ -40,6 +45,7 @@ void addStack(Stack s, BTNode x)
         s->top = node;
     }
 }
+//出栈
 BTNode popStack(Stack s)
 {
     BTNode x = s->top->BTNode;
@@ -48,6 +54,7 @@ BTNode popStack(Stack s)
     free(node);
     return x;
 }
+//创建队列
 Queue InitQueue()
 {
     Queue s = (Queue)malloc(sizeof(Queue));
@@ -55,6 +62,7 @@ Queue InitQueue()
     s->last = NULL;
     return s;
 }
+//入队
 void enqueue(Queue s, BTNode x)
 {
     Node node = (Node)malloc(sizeof(Node));
@@ -70,6 +78,7 @@ void enqueue(Queue s, BTNode x)
         s->last = node;
     }
 }
+//出队
 BTNode dequeue(Queue s)
 {
     BTNode x;
@@ -90,6 +99,7 @@ BTNode dequeue(Queue s)
     }
     return x;
 }
+//递归先序创建二叉树，空格作为空子树
 void createBT(BTNode &x)
 {
     char c;
@@ -106,6 +116,7 @@ void createBT(BTNode &x)
         createBT(x->right);
     }
 }
+//先序遍历
 void PreOrderTraverse(BTNode x)
 {
     if (!x)
@@ -114,7 +125,7 @@ void PreOrderTraverse(BTNode x)
     PreOrderTraverse(x->left);
     PreOrderTraverse(x->right);
 }
-
+//先序遍历 非递归
 void PreOrderTraverse_stack(BTNode bt)
 {
     Stack s;
@@ -130,6 +141,7 @@ void PreOrderTraverse_stack(BTNode bt)
             addStack(s, temp->left);
     }
 }
+//中序遍历
 void InOrderTraverse(BTNode x)
 {
     if (x == NULL)
@@ -141,6 +153,7 @@ void InOrderTraverse(BTNode x)
         InOrderTraverse(x->right);
     }
 }
+//后序遍历
 void PostOrderTraverse(BTNode x)
 {
     if (x == NULL)
@@ -152,6 +165,7 @@ void PostOrderTraverse(BTNode x)
         printf("%c", x->item);
     }
 }
+//层次遍历
 void LevelOrderTraverse(BTNode x)
 {
     Queue q;
@@ -169,6 +183,7 @@ void LevelOrderTraverse(BTNode x)
 }
 int main()
 {
+    //先创建二叉树
     BTNode bt;
     printf("**********************************\n");
     printf("Please input charaters as items of binary tree,end with '0'.\n");
@@ -177,6 +192,7 @@ int main()
     int choice;
     while (true)
     {
+        //选择遍历方法
         printf("**********************************\n");
         printf("1.Pre Order Traverse BT - recursive version\n");
         printf("2.Pre Order Traverse BT - stack version\n");
