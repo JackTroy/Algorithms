@@ -1,21 +1,19 @@
-import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.Stack;
-import edu.princeton.cs.algs4.StdOut;
 
-public class BreadthFirstPaths {
+public class BreathFirstPathsDirected {
 	private static final int INFINITY = Integer.MAX_VALUE;
 	private boolean[] marked;
 	private int[] edgeTo;
 	private int[] distTo;
 	//private final int s;
-	public BreadthFirstPaths(Graph G,int s){
+	public BreathFirstPathsDirected(Digraph G,int s){
 		marked = new boolean[G.V()];
 		edgeTo = new int[G.V()];
 		distTo = new int[G.V()];
 		bfs(G,s);
 	}
-	private void bfs(Graph G,int s) {
+	private void bfs(Digraph G,int s) {
 		Queue<Integer> queue = new Queue<Integer>();
         for (int v = 0; v < G.V(); v++)
             distTo[v] = INFINITY;
@@ -50,12 +48,7 @@ public class BreadthFirstPaths {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-        In in = new In(args[0]);
-        Graph G = new Graph(in);
-        DepthFirstPaths paths = new DepthFirstPaths(G, 0);
-        for(int step:paths.pathTo(10)){
-        	StdOut.println(step);
-        }
+
 	}
 
 }

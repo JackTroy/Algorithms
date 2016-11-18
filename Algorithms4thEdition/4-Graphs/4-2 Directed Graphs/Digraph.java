@@ -1,15 +1,14 @@
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Stack;
-import edu.princeton.cs.algs4.StdOut;
 
-public class Graph {
+public class Digraph {
 	private static final String NEWLINE = System.getProperty("line.separator");
 	private final int V;//number of vertex
 	private int E;//number of edge
 	private Bag<Integer>[] adj;
-	@SuppressWarnings("unchecked")
-	public Graph(int V){
+	
+	public Digraph(int V){
 		this.V=V;
 		this.E=0;
 		//generic array is banned in java,pity
@@ -17,7 +16,7 @@ public class Graph {
 		for(int v=0;v<V;v++)
 			adj[v]=new Bag<Integer>();
 	}
-	public Graph(In in){
+	public Digraph(In in){
 		this(in.readInt());
 		int E = in.readInt();
 		for(int i=0;i<E;i++){
@@ -26,7 +25,7 @@ public class Graph {
 			addEdge(v,w);
 		}
 	}
-	public Graph(Graph G){
+	public Digraph(Digraph G){
 		this(G.V());
 		this.E = G.E();
 		for(int v=0;v<V;v++){
@@ -54,7 +53,14 @@ public class Graph {
 	    validateVertex(w);
 		E++;
 		adj[v].add(w);
-		adj[w].add(v);
+	}
+	public Digraph reverse(){
+		Digraph R = new Digraph(V);
+		for(int v=0;v<V;v++){
+			for(int w:adj(v))
+				R.addEdge(w, v);
+		}
+		return R;
 	}
 	private void validateVertex(int v){
 		if(v<0||v>=V)
@@ -76,11 +82,4 @@ public class Graph {
         validateVertex(v);
         return adj[v].size();
     }
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-        In in = new In(args[0]);
-        Graph G = new Graph(in);
-        StdOut.println(G);
-	}
-
 }
