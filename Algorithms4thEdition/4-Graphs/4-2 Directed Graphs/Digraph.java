@@ -7,7 +7,7 @@ public class Digraph {
 	private final int V;//number of vertex
 	private int E;//number of edge
 	private Bag<Integer>[] adj;
-	
+	private int[] indegree; 
 	public Digraph(int V){
 		this.V=V;
 		this.E=0;
@@ -52,6 +52,7 @@ public class Digraph {
 		validateVertex(v);
 	    validateVertex(w);
 		E++;
+		indegree[w]++;
 		adj[v].add(w);
 	}
 	public Digraph reverse(){
@@ -66,6 +67,14 @@ public class Digraph {
 		if(v<0||v>=V)
 			throw new IndexOutOfBoundsException("vertex " + v + " is not between 0 and " + (V-1));
 	}
+    public int indegree(int v) {
+        validateVertex(v);
+        return indegree[v];
+    }
+    public int outdegree(int v) {
+        validateVertex(v);
+        return adj[v].size();
+    }
     public String toString() {
         StringBuilder s = new StringBuilder();
         s.append(V + " vertices, " + E + " edges " + NEWLINE);
