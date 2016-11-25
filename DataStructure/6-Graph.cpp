@@ -150,10 +150,12 @@ int main()
 {
     DGraph G;
     CreateDGraph(G);
+    printf("Depth first search on directed graph.\n");
     DepthFirstSearch(G);
     printf("\n");
+    printf("Breath first search on directed graph.\n");
     BreathFirstSearch(G);
-    system("pause");
     printf("\n");
+    system("pause");
     return 0;
 }
