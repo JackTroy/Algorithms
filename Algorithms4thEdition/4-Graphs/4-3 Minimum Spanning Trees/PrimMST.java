@@ -1,5 +1,7 @@
 import edu.princeton.cs.algs4.Bag;
+import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.IndexMinPQ;
+import edu.princeton.cs.algs4.StdOut;
 
 public class PrimMST {
 	private Edge[] edgeTo;
@@ -48,7 +50,12 @@ public class PrimMST {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+        In in = new In(args[0]);
+        EdgeWeightedGraph G = new EdgeWeightedGraph(in);
+        PrimMST mst = new PrimMST(G);
+        for (Edge e : mst.edges()) {
+            StdOut.println(e);
+        }
 	}
 
 }

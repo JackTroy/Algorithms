@@ -20,9 +20,7 @@ public class Edge implements Comparable<Edge>{
 		else	throw new RuntimeException("Inconsistent edge");
 	}
 	public int compareTo(Edge that) {
-		if(this.weight()<that.weight())	return -1;
-		else if(this.weight()>that.weight()) return 1;
-		else return 0;
+		return Double.compare(this.weight, that.weight);
 	}
 	public String toString(){
 		return String.format("%d-%d %.2f", v,w,weight);
