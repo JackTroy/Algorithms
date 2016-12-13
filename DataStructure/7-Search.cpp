@@ -23,7 +23,7 @@ ST initST(int size)
     st->size = size;
     for (int i = 0; i < size; i++)
     {
-        printf("%d node\n", i+1);
+        printf("%d node\n", i + 1);
         printf("Please input key\n");
         scanf("%d", &st->nodes[i].key);
         printf("Please input value\n");
@@ -35,7 +35,7 @@ ST initST(int size)
 int sequentialSearch(ST st, Key key)
 {
     int i;
-    for ( i = 0; i < st->size; i++)
+    for (i = 0; i < st->size; i++)
         if (st->nodes[i].key == key)
             return i;
     return -1;
@@ -78,24 +78,32 @@ int main()
     ST st = initST(size);
     Key key;
     int choice;
-    while(true){
+    while (true)
+    {
         int index;
         printf("Begin search, please input key\n");
-        scanf("%d",&key);
+        scanf("%d", &key);
         printf("Input 1 to use sequential search,2 to use binary search.\n");
-        scanf("%d",&choice);
-        if(choice==1) {
-            index = sequentialSearch(st,key);
-            if(index!=-1)   printf("Found key %d ,value:%d .\n", st->nodes[index].key, st->nodes[index].val);
-            else            printf("Not found.\n");
+        scanf("%d", &choice);
+        if (choice == 1)
+        {
+            index = sequentialSearch(st, key);
+            if (index != -1)
+                printf("Found key %d ,value:%d .\n", st->nodes[index].key, st->nodes[index].val);
+            else
+                printf("Not found.\n");
         }
-        else{
-            index = binarySearch(st,key);
-            if(index!=-1)   printf("Found key %d ,value:%d .\n", st->nodes[index].key, st->nodes[index].val);
-            else            printf("Not found.\n");
+        else
+        {
+            index = binarySearch(st, key);
+            if (index != -1)
+                printf("Found key %d ,value:%d .\n", st->nodes[index].key, st->nodes[index].val);
+            else
+                printf("Not found.\n");
         }
         printf("Input 0 to quit ,1 to continue search.\n");
-        scanf("%d",&choice);
-        if(choice==0) break;
+        scanf("%d", &choice);
+        if (choice == 0)
+            break;
     }
 }
