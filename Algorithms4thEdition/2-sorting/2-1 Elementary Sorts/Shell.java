@@ -8,7 +8,7 @@ public class Shell {
 	public static void sort(Comparable[] a){
 		int N =a.length;
 		int h =1;
-		while(h*3+1<N)h=h*3+1;
+		while(h*3+1<N)	h=h*3+1;
 		while(h>=1){
 			for(int i=h;i<N;i++){
 				//the reverse direction of original shell sorting
