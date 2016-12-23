@@ -15,7 +15,7 @@ void shellSort(int *a, int len)
     while (h >= 1)
     {
         for (int i = h; i < len; i++)
-            for (int j = i; j >= h && a[j] < a[j - 1]; j -= h)
+            for (int j = i; j >= h && a[j] < a[j - h]; j -= h)
                 exch(a, j, j - h);
         h = (h - 1) / 3;
     }
