@@ -6,6 +6,7 @@ bin/
 doc/
 .settings/
 Problem sets/
+TmpWorkspace/
 
 #files
 algs4.jar
