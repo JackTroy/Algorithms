@@ -6,9 +6,9 @@ public class SolutionTemplate {
 	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 	StringBuilder out = new StringBuilder();
 	
-	public void solve() throws NumberFormatException, IOException{
+	void solve() throws NumberFormatException, IOException{
 		while(true){
-			if(true)	break;
+			String str = in.readLine();	if(str == null)	break;
 		}
 		System.out.print(out.toString());
 	}
