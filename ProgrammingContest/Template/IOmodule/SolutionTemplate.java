@@ -7,7 +7,7 @@ public class SolutionTemplate {
 	StringBuilder out = new StringBuilder();
 	
 	void solve() throws NumberFormatException, IOException{
-		while(true){
+		for(;;){
 			String str = in.readLine();	if(str == null)	break;
 		}
 		System.out.print(out.toString());
