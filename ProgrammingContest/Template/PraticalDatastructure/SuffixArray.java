@@ -63,7 +63,7 @@ public class SuffixArray {
 	}
 	public static int BinarySearchUsingLCP(String query){
 		int l = 0, r = s.length() - 1, mid = 0;
-		int m = query.length(), MaxMatch = 0, ans = s.length() - 1;
+		int MaxMatch = 0, ans = s.length() - 1;
 		if(s.charAt(s.length() - 1) == query.charAt(0))	MaxMatch = 1;
 		while(l <= r){
 			mid = (l + r) / 2;
