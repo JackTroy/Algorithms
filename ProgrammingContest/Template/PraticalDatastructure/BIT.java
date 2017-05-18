@@ -28,5 +28,4 @@ public class BIT {
 			add(i, a);
 		}
 	}
-
 }

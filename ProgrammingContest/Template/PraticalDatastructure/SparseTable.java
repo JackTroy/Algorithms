@@ -1,5 +1,5 @@
 
-public class RMQ {
+public class SparseTable {
 	
 	public static int n = 1024;
 	public static int dMin[][] = new int[n][10], dMax[][] = new int[n][10];
