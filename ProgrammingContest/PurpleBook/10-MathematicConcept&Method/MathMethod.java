@@ -101,7 +101,8 @@ public class MathMethod {
 		return phi;
 	}
 	
-	//compute upper bound with choice = {a,b,c,d},ans = {a1,b1,~}, i as decision level, j as decision
+	//compute upper bound with choice = {a,b,c,d}
+	//ans = {a1,b1,~}, i as decision level, j as decision
 	public static int upperbound(int i, int j, int[] ans, int[] choice){
 		int ub = 0;
 		for(int level = 0; level < i; level++){
@@ -121,5 +122,4 @@ public class MathMethod {
 	public static void main(String[] args) {
 		System.out.println(modOfPow(7, 2, 4));
 	}
-
 }
