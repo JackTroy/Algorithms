@@ -1,7 +1,11 @@
 import java.util.Arrays;
 
 public class BinarySearch {
+	//if there are no keys in the sequence at all
+	//the return of both function is the same
+	//if there are one or more keys, the return would be different
 	
+	//return the first element equal or greater than key
 	public static int lowerBound(int[] a, int key){
 		int x = 0, y = a.length - 1, m;
 		while(x < y){
@@ -11,6 +15,16 @@ public class BinarySearch {
 		}
 		return x;
 	}
+	public static int lowerBound(int[] a, int key, int l, int r){
+		int x = l, y = r, m;
+		while(x < y){
+			m = (x + y) / 2;
+			if(a[m] >= key) y = m;
+			else			x = m + 1;
+		}
+		return x;
+	}
+	//return the first element greater than key
 	public static int upperBound(int[] a, int key){
 		int x = 0, y = a.length - 1, m;
 		while(x < y){
