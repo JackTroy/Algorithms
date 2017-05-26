@@ -11,5 +11,4 @@ public class Subset {
 	public static void main(String[] args) {
 		generateSubset(3);
 	}
-
 }

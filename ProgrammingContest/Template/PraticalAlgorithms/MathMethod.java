@@ -4,7 +4,11 @@ public class MathMethod {
 	public static int gcd(int a, int b){
 		return b == 0 ? a : gcd(b, a % b);
 	}
-	
+	//lcm
+	static int lcm(int a, int b){
+		//a * b may overflow, so division goes first
+		return a / gcd(a, b) * b;
+	}
 	//expand gcd
 	public static int x, y, d;
 	public static void exgcd(int a, int b){
