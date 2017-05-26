@@ -47,11 +47,9 @@ public class MaxFlow {
 							queue.add(edge.to);
 						}
 					}
-					if (a[t] != 0)
-						break;
+					if (a[t] != 0)	break;
 				}
-				if (a[t] == 0)
-					break;
+				if (a[t] == 0)	break;
 				for (int u = t; u != s; u = G.edges.get(edgeTo[u]).from) {
 					G.edges.get(edgeTo[u]).flow += a[t];
 					G.edges.get(edgeTo[u] ^ 1).flow -= a[t];

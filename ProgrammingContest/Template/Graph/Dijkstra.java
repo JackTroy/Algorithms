@@ -62,7 +62,7 @@ public class Dijkstra {
 				int weight = edge.weight;
 				if(dist[to] > dist[u] + weight){ 
 					dist[to] = dist[u] + weight;
-					q.add(new Vertex(to	, dist[to]));
+					q.add(new Vertex(to, dist[to]));
 				}
 			}
 		}

@@ -24,4 +24,17 @@ public class Polygon {
 		}
 		return ch;
 	}
+	static boolean isPointInPolygon(Point point, Point[] points){
+		int wn = 0;
+		int n = points.length;
+		for(int i = 0; i < n; i++){
+			if(Line.isPointOnSegment(point, points[i], points[(i+1)%n]))	return true;
+			int k = Point.dcmp(Point.cross(Point.Minus(points[(i+1)%n], points[i]), Point.Minus(point, points[i])));
+			int d1 = Point.dcmp(points[i].y - point.y);
+			int d2 = Point.dcmp(points[(i+1)%n].y - point.y);
+			if(k > 0 && d1 <= 0 && d2 > 0)	wn++;
+			if(k < 0 && d2 <= 0 && d1 > 0)	wn--;
+		}
+		return wn != 0;
+	}
 }

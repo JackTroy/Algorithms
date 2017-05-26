@@ -22,11 +22,13 @@ public class Point implements Comparable<Point>{
 		else				return Double.compare(y, o.y);
 	}
 	static final double eps = 1e-10;
-	static boolean dcmp(double x){
-		return Math.abs(x) < eps;
+	static int dcmp(double x){
+		if(Math.abs(x) < eps) 	return 0;
+		else if(x < 0)			return -1;
+		else					return 1;
 	}
 	static boolean equal(Point a, Point o){
-		return dcmp(a.x - o.x) && dcmp(a.y - o.y);
+		return dcmp(a.x - o.x) == 0 && dcmp(a.y - o.y) == 0;
 	}
 	static double Dot(Point a, Point o){
 		return a.x * o.x + a.y * o.y;

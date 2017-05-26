@@ -14,6 +14,10 @@ public class Line {
 		Point v1 = Point.Minus(b, a), v2 = Point.Minus(p, a);
 		return Math.abs(Point.cross(v1, v2)) / Point.Length(v1);
 	}
+	static boolean isPointOnSegment(Point p, Point a, Point b){
+		Point vec1 = Point.Minus(b, a), vec2 = Point.Minus(p, a);
+		return vec2.x / vec1.x <= 1. && Math.abs(vec2.x / vec1.x - vec2.y / vec1.y) < 1e-10;
+	}
 	public static void main(String[] args) {
 
 	}

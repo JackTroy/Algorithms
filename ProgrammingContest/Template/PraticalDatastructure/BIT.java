@@ -24,7 +24,7 @@ public class BIT {
 		c = new int[n + 1];
 		for(int i = 1; i < n + 1; i++){
 			int a = (int) (Math.random() * 100);
-			System.out.print(a);
+			System.out.print(a + " ");
 			add(i, a);
 		}
 	}

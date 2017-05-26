@@ -53,7 +53,6 @@ public class TriesST<Value> {
 		
 		if(key.length()==d)	return x;
 		char c = key.charAt(d);
-		//do use return !
 		return get(x.next[c],key,d+1);
 	}
 	public Value ncget(String key){
