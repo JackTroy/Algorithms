@@ -7,13 +7,13 @@ public class Point implements Comparable<Point>{
 			x = x_;
 			y = y_;
 	}
-	static Point Add(Point a, Point o){
+	static Point add(Point a, Point o){
 		return new Point(a.x + o.x, a.y + o.y);
 	}
-	static Point Minus(Point a, Point o){
+	static Point minus(Point a, Point o){
 		return new Point(a.x - o.x, a.y - o.y);
 	}
-	static Point Multiply(Point o, double c){
+	static Point multiply(Point o, double c){
 		return new Point(o.x * c, o.y * c);
 	}
 	public int compareTo(Point o) {
@@ -30,19 +30,19 @@ public class Point implements Comparable<Point>{
 	static boolean equal(Point a, Point o){
 		return dcmp(a.x - o.x) == 0 && dcmp(a.y - o.y) == 0;
 	}
-	static double Dot(Point a, Point o){
+	static double dot(Point a, Point o){
 		return a.x * o.x + a.y * o.y;
 	}
-	static double Length(Point o){
-		return Math.sqrt(Dot(o, o));
+	static double length(Point o){
+		return Math.sqrt(dot(o, o));
 	}
-	static double Angle(Point a, Point o){
-		return Math.acos(Point.Dot(a, o)) / Length(a) / Length(o);
+	static double angle(Point a, Point o){
+		return Math.acos(Point.dot(a, o)) / length(a) / length(o);
 	}
 	static double cross(Point a, Point b){
-		return a.x * b.x - a.y * b.y;
+		return a.x * b.y - a.x * b.y;
 	}
 	static double area(Point a,Point b, Point c){
-		return cross(Minus(b, a), Minus(c, a)) / 2;
+		return cross(minus(b, a), minus(c, a)) / 2;
 	}
 }
